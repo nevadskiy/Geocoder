@@ -4,5 +4,5 @@ namespace Geocoder;
 
 interface GeocoderClientInterface
 {
-    public function geocode($address, $region = null, $language = null): Iterable;
+    public function geocode($address, $region = null, $language = null): Response;
 }

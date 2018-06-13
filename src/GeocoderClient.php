@@ -4,7 +4,7 @@ namespace Geocoder;
 
 use GuzzleHttp\ClientInterface;
 
-class GeocoderClient
+class GeocoderClient implements GeocoderClientInterface
 {
     // Response about limit queries amount
     const ERROR_OVER_LIMIT = 'OVER_QUERY_LIMIT';
@@ -68,8 +68,9 @@ class GeocoderClient
         return new Response($response);
     }
 
-    public function sendQuery($query)
+    private function sendQuery($query)
     {
+        var_dump($query);
         try {
             $request = $this->httpClient->request('get', $query);
         } catch (\Exception $e) {

@@ -13,23 +13,11 @@ class Response
 
     public function first()
     {
-        return new AddressProcessor($this->getRaw()->results[0]->address_components ?? null);
+        return new AddressProcessor($this->getRaw()->results[0] ?? null);
     }
 
     public function getRaw()
     {
         return $this->raw;
     }
-
-//    protected $fields = [
-//        'city',
-//        'country',
-//        'lat',
-//        'lng'
-//    ];
-//
-//    public function getFields()
-//    {
-//        return $this->fields;
-//    }
 }
